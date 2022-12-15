@@ -5,7 +5,7 @@
     @section('container')
 <div class="row">
   <div class="col-lg-6">
-        <form action="/client1" method="POST">
+        <form action="/client" method="POST">
 @csrf
       <div class="mb-3">
         <label  class="form-label">Client Name</label>

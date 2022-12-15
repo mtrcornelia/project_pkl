@@ -19,7 +19,7 @@ use App\Http\Controllers\LoginController;
 */
 
 Route::get('/backend', function () {
-    return view('home');
+    return view('backend.layout.main');
 });
 Route::get('/', function () {
     return view('frontend.layout.main');

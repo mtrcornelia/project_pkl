@@ -22,7 +22,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
  
-            return redirect()->intended('backend');
+            return redirect()->intended('dashboard');
         }
  
         return back()->with('errorLogin','Email or Password invalid!');

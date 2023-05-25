@@ -13,12 +13,42 @@ class TbMProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function __construct()
     {
-       return view ('backend.project.index',[
-        'tb_m_projects'=>Tb_m_project::latest()->paginate(6)
-        ]);
+        $this->middleware('auth');
     }
+    public function index(Request $request)
+    {
+        if($request->has('name')){
+            $tb_m_projects = Tb_m_project::join('tb_m_clients', 'tb_m_projects.client_id', '=', 'tb_m_clients.id')
+            ->where('tb_m_projects.client_id','LIKE','%'.$request->client.'%')
+            ->where('tb_m_projects.project_name','LIKE','%'.$request->name.'%')
+            ->where('tb_m_projects.project_status','LIKE','%'.$request->status.'%')
+            
+            ->paginate(6);
+        }
+        else{
+            $tb_m_projects = Tb_m_project::latest()->paginate(6);
+            
+        }
+        $tb_m_clients =Tb_m_client::all();
+      
+
+        // if($request->has('searchCient')){
+        //     $tb_m_clients = Tb_m_client::where('client_id','LIKE','%'.$request->searchCient.
+        //     '%')->paginate(6);
+
+        // }
+        // else{
+        //     $tb_m_clients =Tb_m_client::latest()->paginate(6);
+        // }
+    //    return view ('backend.project.index',compact('tb_m_projects'));
+         return view('backend.project.index', compact('tb_m_projects', 'tb_m_clients'));
+
+        
+
+    }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -114,3 +144,4 @@ class TbMProjectController extends Controller
          return redirect('/project')->with('pesan','data berhasil dihapus');
     }
 }
+

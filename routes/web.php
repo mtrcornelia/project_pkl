@@ -6,6 +6,7 @@ use App\Http\Controllers\TbMfClientController;
 use App\Http\Controllers\TbMProjectController;
 use App\Http\Controllers\TbMfProjectController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,18 +19,18 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::get('/backend', function () {
-    return view('home');
-});
+
 Route::get('/', function () {
     return view('frontend.layout.main');
 });
 Route::get('/home', function () {
     return view('home');
 });
+Route::resource('dashboard', DashboardController::class);
 Route::resource('client', TbMClientController::class);
 Route::resource('clientfrontend', TbMfClientController::class);
 Route::resource('project', TbMProjectController::class);
+Route::get('/projects/search', [ProjectController::class, 'searchByProjectName'])->name('projects.searchByProjectName');
 Route::resource('projectfrontend', TbMfProjectController::class);
 
 Route::get('/login', [LoginController::class,'login'])->name('login')->middleware('guest');

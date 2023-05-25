@@ -24,7 +24,7 @@ class TbMProjectController extends Controller
             ->where('tb_m_projects.client_id','LIKE','%'.$request->client.'%')
             ->where('tb_m_projects.project_name','LIKE','%'.$request->name.'%')
             ->where('tb_m_projects.project_status','LIKE','%'.$request->status.'%')
-            
+            ->select('tb_m_projects.id' ,'tb_m_projects.project_name' , 'tb_m_projects.client_id' , 'tb_m_projects.project_start' , 'tb_m_projects.project_end' , 'tb_m_projects.project_status')
             ->paginate(6);
             
         }

@@ -14,7 +14,7 @@
 	</div>
 @endif
 <a href="/project/create" class="btn btn-primary mb-3">ADD</a>
-<form action="/project">
+<form action="/project" >
 	<div class="row">
 		<div class="col-lg-2 mb-2 mt-2">
 			<label for="">Nama Project</label>
@@ -76,7 +76,7 @@
 		<td>{{$tb_m_project->project_end}}</td>
 		<td>{{$tb_m_project->project_status}}</td>
 		<td>
-			<a href="/project/{{$tb_m_project->id}}/edit" class="btn btn-warning btn-small">Edit</a>
+			<a href="{{ url('/project/'.$tb_m_project->id.'/edit') }}" class="btn btn-warning btn-small">Edit</a>
 			<form action="/project/{{$tb_m_project->id}}" method="POST" class="d-inline">
 				@method('DELETE')
 				@csrf

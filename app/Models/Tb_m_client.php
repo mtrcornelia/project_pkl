@@ -10,7 +10,7 @@ class Tb_m_client extends Model
     use HasFactory;
     protected $guarded=[];
 
-    public function Tb_m_client()
+    public function client()
     {
     	//belongsTo untuk data one to one
     	return $this-> belongsTo(Client::class);

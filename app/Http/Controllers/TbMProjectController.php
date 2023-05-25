@@ -26,6 +26,7 @@ class TbMProjectController extends Controller
             ->where('tb_m_projects.project_status','LIKE','%'.$request->status.'%')
             
             ->paginate(6);
+            
         }
         else{
             $tb_m_projects = Tb_m_project::latest()->paginate(6);

@@ -13,7 +13,7 @@
 		{{ session('pesan') }}
 	</div>
 @endif
-<a href="/project/create" class="btn btn-primary mb-3">Tambah Data</a>
+<a href="/project/create" class="btn btn-primary mb-3">ADD</a>
 <form action="/project">
 	<div class="row">
 		<div class="col-lg-2 mb-2 mt-2">
@@ -59,7 +59,7 @@
 
 		<th>ID</th>
 		<th>Project Name</th>
-		<th>client Id </th>
+		<th>client Name </th>
 		<th>Project Start  </th>
 		<th>Project End</th>
 		<th>Status Project</th>
@@ -71,7 +71,7 @@
 		
 		<td>{{$tb_m_project->id}}</td>
 		<td>{{$tb_m_project->project_name}}</td>
-		<td>{{$tb_m_project->client_id}}</td>
+		<td>{{$tb_m_project->client->client_name}}</td>
 		<td>{{$tb_m_project->project_start}}</td>
 		<td>{{$tb_m_project->project_end}}</td>
 		<td>{{$tb_m_project->project_status}}</td>

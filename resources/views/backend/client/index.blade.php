@@ -12,7 +12,7 @@
 		{{ session('pesan') }}
 	</div>
 @endif
-<a href="/client/create" class="btn btn-primary mb-3">Tambah Data</a>
+<a href="/client/create" class="btn btn-primary mb-3">ADD</a>
 <table class="table table-bordered">
 	<tr class="text-center">
 		<th>ID</th>

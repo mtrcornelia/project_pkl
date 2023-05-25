@@ -19,7 +19,13 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
+<<<<<<< HEAD
 
+=======
+Route::get('/backend', function () {
+    return view('backend.layout.main');
+});
+>>>>>>> 65dafed9debe2975bb83ace6c0ec2c0a32b60598
 Route::get('/', function () {
     return view('frontend.layout.main');
 });
